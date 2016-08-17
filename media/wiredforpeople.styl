@@ -1,0 +1,90 @@
+main-color = #0c0
+middle-border = #060
+border-color = #030
+
+error-border = #600
+error-color = #c00
+
+*
+  box-sizing border-box
+
+body
+  background black
+  margin 2px
+  font-size 10px
+  color main-color
+
+  .forms
+    form
+      border 1px border-color solid
+      padding 3px
+      margin-right 2px
+      float left
+      overflow hidden
+
+      input
+        background black
+        border 1px solid middle-border
+        font-size 10px
+        color main-color
+        vertical-align middle
+
+        &[name=in_txt]
+          width 200px
+
+        &[type=submit]
+          border-color main-color
+
+      .file-input
+        border 1px solid middle-border
+        height 18px
+        overflow hidden
+        float left
+        margin-right 3px
+        position relative
+        width 200px
+
+        .browse
+          position absolute
+          left 0
+          top 0
+          bottom 0
+          border-right middle-border 1px solid
+          width 50px
+          text-align center
+          padding-top 3px
+
+        .filename
+          position absolute
+          padding 3px
+          top 0
+          left 50px
+          right 0
+          bottom 0
+
+        input
+          position absolute
+          top 0
+          left 0
+          right 0
+          bottom 0
+          opacity 0
+
+form.error
+  color error-color
+
+  input
+  .browse
+  .file-input
+    border-color error-border !important
+    color error-color !important
+
+    &[type=submit]
+      border-color error-color !important
+
+.display
+  width 600px
+  clear both
+
+  .text-entry
+    position relative

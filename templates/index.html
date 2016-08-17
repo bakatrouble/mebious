@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <title>wired</title>
+    <link rel="stylesheet" href="/media/wiredforpeople.css">
+</head>
+<body>
+    <div class="forms">
+        <form action="" class="text-upload{% if 'txt' in errors %} error{% endif %}" enctype="multipart/form-data" method="post">
+            <input type="text" name="in_txt" maxlength="255">
+            <input type="submit" name="action" value="in_txt">
+        </form>
+        <!--form action="" class="img-upload{% if 'img' in errors %} error{% endif %}" enctype="multipart/form-data" method="post">
+            <div class="file-input">
+                <div class="browse">Browse...</div>
+                <div class="filename">No file selected</div>
+                <input type="file" name="in_img">
+            </div>
+            <input type="submit" name="action" value="in_img">
+        </form-->
+    </div>
+    <div class="display">
+        {% for entry in text_entries %}
+            {% set text_color = random(150, 255) %}
+            <div class="text-entry"
+                 style="
+                         left: {{ random(0, 500) }}px;
+                         top: {{ random(-10, 10) }}px;
+                         font-size: {{ random(14, 40) }}px;
+                         color: rgb({{ text_color }}, 255, {{ text_color }});
+                         opacity: {{ 0.5 + random(0, 50) * 0.01 }};
+                         font-family: {{ fonts | random }};
+                         ">{{ entry.content }}</div>
+        {% endfor %}
+    </div>
+</body>
+</html>

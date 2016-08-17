@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #000;
+  margin: 2px;
+  font-size: 10px;
+  color: #0c0;
+}
+body .forms form {
+  border: 1px #030 solid;
+  padding: 3px;
+  margin-right: 2px;
+  float: left;
+  overflow: hidden;
+}
+body .forms form input {
+  background: #000;
+  border: 1px solid #060;
+  font-size: 10px;
+  color: #0c0;
+  vertical-align: middle;
+}
+body .forms form input[name=in_txt] {
+  width: 200px;
+}
+body .forms form input[type=submit] {
+  border-color: #0c0;
+}
+body .forms form .file-input {
+  border: 1px solid #060;
+  height: 18px;
+  overflow: hidden;
+  float: left;
+  margin-right: 3px;
+  position: relative;
+  width: 200px;
+}
+body .forms form .file-input .browse {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-right: #060 1px solid;
+  width: 50px;
+  text-align: center;
+  padding-top: 3px;
+}
+body .forms form .file-input .filename {
+  position: absolute;
+  padding: 3px;
+  top: 0;
+  left: 50px;
+  right: 0;
+  bottom: 0;
+}
+body .forms form .file-input input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+form.error {
+  color: #c00;
+}
+form.error input,
+form.error .browse,
+form.error .file-input {
+  border-color: #600 !important;
+  color: #c00 !important;
+}
+form.error input[type=submit],
+form.error .browse[type=submit],
+form.error .file-input[type=submit] {
+  border-color: #c00 !important;
+}
+.display {
+  width: 600px;
+  clear: both;
+}
+.display .text-entry {
+  position: relative;
+}
