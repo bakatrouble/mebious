@@ -20,7 +20,7 @@
         </form-->
     </div>
     <div class="display">
-        {% for entry in text_entries %}
+        {% for entry in text_entries | reverse %}
             {% set text_color = random(150, 255) %}
             <div class="text-entry"
                  style="
