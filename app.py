@@ -34,20 +34,23 @@ def index():
         elif flask.request.form.get('action') == 'in_img':
             file = flask.request.files['in_img']
             if file:  # and allowed_file(file.filename):
-                im = Image.open(file)
-                im = im.convert('RGBA')
-                im = im.resize((randint(150, 200), randint(150, 200)))
-                pix = im.load()
-                for y in range(im.size[1]):
-                    for x in range(im.size[0]):
-                        pix[x, y] = (0, pix[x, y][2], 0, 255)
+                try:
+                    im = Image.open(file)
+                    im = im.convert('RGBA')
+                    im = im.resize((randint(150, 200), randint(150, 200)))
+                    pix = im.load()
+                    for y in range(im.size[1]):
+                        for x in range(im.size[0]):
+                            pix[x, y] = (0, pix[x, y][2], 0, 255)
 
-                filename = uuid4().hex
-                im.save(os.path.join('media', 'uploads', filename), 'JPEG')
+                    filename = uuid4().hex
+                    im.save(os.path.join('media', 'uploads', filename), 'JPEG')
 
-                entry = Entry(filename, Entry.TYPE_IMG)
-                db.session.add(entry)
-                db.session.commit()
+                    entry = Entry(filename, Entry.TYPE_IMG)
+                    db.session.add(entry)
+                    db.session.commit()
+                except Exception:
+                    errors.append('img')
             else:
                 errors.append('img')
     return flask.render_template('index.html',
