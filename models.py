@@ -26,3 +26,7 @@ class Entry(db.Model):
     @staticmethod
     def get_text_entries(count=10):
         return Entry.query.filter_by(content_type=Entry.TYPE_TEXT).order_by('datetime desc').limit(count)
+
+    @staticmethod
+    def get_img_entries(count=10):
+        return Entry.query.filter_by(content_type=Entry.TYPE_IMG).order_by('datetime desc').limit(count)

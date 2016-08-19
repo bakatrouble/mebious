@@ -79,7 +79,13 @@ form.error .file-input[type=submit] {
 .display {
   width: 600px;
   clear: both;
+  position: relative;
 }
 .display .text-entry {
   position: relative;
+  z-index: 10;
+}
+.display .img-entry {
+  position: absolute;
+  z-index: 5;
 }
